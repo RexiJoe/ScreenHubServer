@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "start": "nodemon index.js",
-    "streaming": "nodemon videoStreaming.js"
+    "start": "node index.js"
   },
   "author": "Joseph Morningstar",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.8.4",
