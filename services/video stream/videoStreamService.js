@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-const client = new mongoose.mongo.MongoClient("mongodb://127.0.0.1:27017/screenhub")
+require("dotenv").config();
+const client = new mongoose.mongo.MongoClient(process.env.DATABASE)
 
 async function videoStreamService(req, res){
     

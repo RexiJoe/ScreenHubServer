@@ -2,9 +2,10 @@ const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const UsersModel = require("../../database/models/Users");
 const VideosModel = require("../../database/models/Videos");
+require("dotenv").config();
 const { Readable } = require("stream");
 
-const client = new mongoose.mongo.MongoClient("mongodb://127.0.0.1:27017/screenhub")
+const client = new mongoose.mongo.MongoClient(process.env.DATABASE)
 
 async function videoUploadService(req, res){
 
