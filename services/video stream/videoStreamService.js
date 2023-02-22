@@ -21,16 +21,7 @@ async function videoStreamService(req, res){
             const bucket = new mongoose.mongo.GridFSBucket(db, {bucketName: "videoFiles"})
             const downloadStream = bucket.openDownloadStream(objID,{start:start, end:end});
 
-            downloadStream.on("data", (chunk)=>{
-                res.write(chunk);
-            })
-            downloadStream.on("error",(e)=> {
-                console.log(e)
-                res.sendStatus(400)
-            });
-            downloadStream.on("end", ()=>{res.end()})
-
-            //downloadStream.pipe(res)
+            downloadStream.pipe(res)
         })           
     } catch (error) {
         console.log("hubo un error en la subida")
